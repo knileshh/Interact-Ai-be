@@ -10,7 +10,12 @@ const port = 3000;
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: 'https://ai.knileshh.com',
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json()); // Use express.json() instead of deprecated bodyParser
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API);
